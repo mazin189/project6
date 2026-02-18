@@ -1,0 +1,27 @@
+.splide__arrow {
+  font-size: 10px !important;   
+  margin-left: 120px !important;
+  margin-right: 120px !important;
+}
+.splide__arrow svg {
+  fill: rgb(168, 182, 183) !important;
+}
+
+.splide__arrow--prev {
+  background-color: #fcfcfc !important;
+}
+.splide__arrow--next {
+  background-color: #fcfcfc !important;
+}
+.shoppingcart-icon{
+position: relative;
+}
+.div-plusicon:hover .plusicon{
+color: white;
+}
+@media (max-width: 640px) {
+.splide__arrow {
+  margin-left: -24px !important;
+  margin-right: -24px !important;
+}
+}
