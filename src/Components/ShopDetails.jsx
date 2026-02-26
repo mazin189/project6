@@ -23,11 +23,18 @@ const [search , setSearch] = useState("")
 
 
 
-const filteredProducts = allProducts.filter(p => { 
-const matchesCategory = !selectedCategory || p.category.toLowerCase() === selectedCategory.toLowerCase()
-const matchesSearch = !search || p.description.toLowerCase().includes(search.toLowerCase());
-return matchesCategory && matchesSearch 
-})
+let filteredProducts = allProducts
+if (selectedCategory) {
+  filteredProducts = filteredProducts.filter(p =>
+    p.category.toLowerCase() === selectedCategory.toLowerCase()
+  )
+}
+if (search) {
+  filteredProducts = filteredProducts.filter(p =>
+    p.description.toLowerCase().includes(search.toLowerCase())
+  )
+}
+
 
 
 const options = [
@@ -82,7 +89,7 @@ toast.success("Product has been added to cart!")
 <div className='w-53 order-2 md:order-1'>
   <Select
   isClearable
-  onChange={(selected)=> setSelectedCategory(selected ? selected.value : null) }
+  onChange={(selected)=> setSelectedCategory(selected ? selected.value : "") }
   options={options}
   placeholder="Search By Category"
   styles={{
